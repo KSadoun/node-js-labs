@@ -1,12 +1,8 @@
-// routers/users.js
 const express = require('express');
 const router = express.Router();
 const schemas = require('../schemas');
 const validate = require('../middlewares/validate');
 
-
-
-// Import controllers (not services)
 const usersController = require('../controllers/users');
 
 // Routes - clean and simple

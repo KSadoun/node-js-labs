@@ -10,17 +10,15 @@ const jwtSign = util.promisify(jwt.sign);
 
 const signUp = async (userData) => {
     const { email, password } = userData;
-    // verfiy email exists
+
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
         throw new APIError("User already exists", 400);
     }
 
-    // extract plain password and hash it
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    // create user with hashed password
     const user = await User.create({ ...userData, password: hashedPassword });
     return user;
 }

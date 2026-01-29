@@ -1,4 +1,3 @@
-// controllers/posts.js
 const postService = require('../services/posts');
 const mongoose = require('mongoose');
 

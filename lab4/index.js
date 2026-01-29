@@ -20,7 +20,6 @@ app.use('/posts', postRouter);
 
 app.use(errorHandler);
 
-// Server setup
 const PORT = Number(process.env.PORT);
 
 app.listen(PORT, () => {

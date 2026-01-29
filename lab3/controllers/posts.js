@@ -1,4 +1,3 @@
-// controllers/posts.js
 const postService = require('../services/posts');
 const mongoose = require('mongoose');
 
@@ -21,7 +20,7 @@ const getAllPosts = async (req, res, next) => {
 };
 
 const getPostById = async (req, res, next) => {
-    // Note: postService expects {id}, so wrap it
+
     const post = await postService.getPostById({ id: req.params.id });
     res.status(200).json({ 
         success: true, 
@@ -32,7 +31,6 @@ const getPostById = async (req, res, next) => {
 const updatePost = async (req, res, next) => {
     const { id } = req.params;
     
-    // ID validation (optional - service also validates)
     if (!mongoose.isValidObjectId(id)) {
         return res.status(400).json({ 
             success: false, 
